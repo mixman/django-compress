@@ -36,7 +36,7 @@ class CompressedCSSNode(template.Node):
         css_name = template.Variable(self.name).resolve(context)
 
         try:
-            css = settings.COMPRESS_CSS[css_name]
+            css = settings.COMPRESS_CSS()[css_name]
         except KeyError:
             return '' # fail silently, do not return anything if an invalid group is specified
 
@@ -71,7 +71,7 @@ class CompressedJSNode(template.Node):
         js_name = template.Variable(self.name).resolve(context)
 
         try:
-            js = settings.COMPRESS_JS[js_name]
+            js = settings.COMPRESS_JS()[js_name]
         except KeyError:
             return '' # fail silently, do not return anything if an invalid group is specified
         

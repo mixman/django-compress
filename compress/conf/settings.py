@@ -14,8 +14,8 @@ COMPRESS_VERSIONING = getattr(settings, 'COMPRESS_VERSIONING', 'compress.version
 
 COMPRESS_CSS_FILTERS = getattr(settings, 'COMPRESS_CSS_FILTERS', ['compress.filters.csstidy.CSSTidyFilter'])
 COMPRESS_JS_FILTERS = getattr(settings, 'COMPRESS_JS_FILTERS', ['compress.filters.jsmin.JSMinFilter'])
-COMPRESS_CSS = getattr(settings, 'COMPRESS_CSS', {})
-COMPRESS_JS = getattr(settings, 'COMPRESS_JS', {})
+COMPRESS_CSS = getattr(settings, 'COMPRESS_CSS', lambda: {})
+COMPRESS_JS = getattr(settings, 'COMPRESS_JS', lambda: {})
 
 if COMPRESS_CSS_FILTERS is None:
     COMPRESS_CSS_FILTERS = []

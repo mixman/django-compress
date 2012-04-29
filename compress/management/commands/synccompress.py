@@ -33,7 +33,7 @@ class Command(NoArgsCommand):
             if (force or u) or verbosity >= 2:
                 print
 
-        for name, js in settings.COMPRESS_JS.items():
+        for name, js in settings.COMPRESS_JS().items():
             u, version = needs_update(js['output_filename'], 
                 js['source_filenames'])
 
